@@ -1,4 +1,4 @@
-export const isValidUKPostCode = ukPostCode => {
+const isValidUKPostCode = ukPostCode => {
   if(!ukPostCode) { return false; }
 
   const ukPostCodePatternString = `^(?:(?:[A-PR-UWYZ][0-9]{1,2}|[A-PR-UWYZ][A-HK-Y][0-9]{1,2}|[A-PR-UWYZ][0-9][A-HJKPSTUW]|
@@ -9,3 +9,5 @@ export const isValidUKPostCode = ukPostCode => {
 
   return !!regexObj.test(normalizedUkPostCode);
 };
+
+module.exports = isValidUKPostCode;

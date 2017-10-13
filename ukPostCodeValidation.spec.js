@@ -1,4 +1,5 @@
-import {isValidUKPostCode} from './ukPostCodeValidation';
+const { expect } = require('chai');
+const isValidUKPostCode = require('./ukPostCodeValidation');
 
 describe('isValidUKPostCode()', () => {
   [
@@ -7,7 +8,7 @@ describe('isValidUKPostCode()', () => {
     {postCode: '', expectation: false},
     {postCode: '1234567', expectation: false}
   ].forEach(item => {
-    test(`Given ${item.postCode} should return ${item.expectation.toString()}`, () => 
-      expect(isValidUKPostCode(item.postCode)).toBe(item.expectation));
+    it(`should return ${item.expectation.toString()} given ${item.postCode} `, () => 
+      expect(isValidUKPostCode(item.postCode)).to.equal(item.expectation));
   });
 });
